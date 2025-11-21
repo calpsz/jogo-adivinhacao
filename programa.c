@@ -9,24 +9,23 @@ int main(){
 
     int numerosecreto = 42;
     int chute;
+    int tentativas = 1;
 
 
-    for(int i = 1; i <= NUMERO_TENTATIVAS; i++){
-        printf("tentativa %d de %d\n", i, NUMERO_TENTATIVAS);
+    while(1){
+        printf("tentativa %d\n", tentativas);
 
         printf("Qual o seu chute? ");
         scanf("%d", &chute);
 
         if(chute < 0){
             printf("Voce nao pode digitar numeros negativos!\n");
-            i--;
 
             continue;
         }
 
         //basicamente um boolean
         int acertou = (chute == numerosecreto);
-
         int menor = (chute < numerosecreto);
 
 
@@ -41,6 +40,7 @@ int main(){
             printf("Seu chute eh MAIOR que o numero secreto\n\n");
         }
 
+    tentativas++;
     
     }
     printf("Fim de jogo!");
