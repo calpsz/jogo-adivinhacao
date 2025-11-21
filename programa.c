@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define NUMERO_TENTATIVAS 5
-
 int main(){
     printf("*************************************\n");
     printf("* Bem-vindo ao jogo da adivinhacao! *\n");
