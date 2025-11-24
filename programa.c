@@ -1,13 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(){
     printf("*************************************\n");
     printf("* Bem-vindo ao jogo da adivinhacao! *\n");
     printf("*************************************\n");
 
-    int numerosecreto = 42;
+    int segundos = time(0);
+    srand(segundos);
+
+    int numerogrande = rand();
+
+    //numero random de 1 a 99
+    int numerosecreto = numerogrande % 100;
+
     int chute;
     int tentativas = 1;
+
+    double pontos = 1000;
 
 
     while(1){
@@ -28,7 +39,7 @@ int main(){
 
 
         if(acertou){
-            printf("Vc acertou!!!\n");
+            printf("Vc acertou!!! PARABENSSS!!! UHUUULL\n\n");
             break;
         }
         else if (menor){
@@ -38,9 +49,15 @@ int main(){
             printf("Seu chute eh MAIOR que o numero secreto\n\n");
         }
 
-    tentativas++;
+        tentativas++;
+
+        //regra do jogo, nao eh uma formula pronta, depende do design do jogo que quer
+        double pontosperdidos = abs(chute - numerosecreto) / (double) 2;
+        pontos = pontos - pontosperdidos;
     
     }
-    printf("Fim de jogo!");
+    printf("Fim de jogo!\n");
+    printf("Numero de tentativas: %d\n", tentativas);
+    printf("Total de pontos: %.2f", pontos);
     
 }
